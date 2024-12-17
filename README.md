@@ -20,7 +20,8 @@ In this project, a TFF setup incorporates an online Raman flow cell to monitor t
 1. Protein concentration during ultrafiltration.
 2. End-point detection of diafiltration.
 
+The scheme below outlineds the TFF set-up used in this process.
 
 <div align="center">
-    <img src=".\img\tff_schematic.jpg" alt="Cells" width="300">
+    <img src=".\img\tff_schematic.jpg" alt="Cells">
 </div
