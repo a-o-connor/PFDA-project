@@ -7,12 +7,30 @@
 </div>
 
 ## About this project
-This repository contains a Python script and a Jupyter notebook with analysis of a Raman sectroscopy data set. The analysis was completed for the purposes of the *Programming for Data Analytics* module I am taking as part of a Higher Diploma in Computer Science and Data Analytics at ATU. The aim of this project is to demonstrate competency using Python to perform data analysis on large data sets.  
-## The Data
-The contents of this repository demonstrate the application of [chemometric techniques](https://en.wikipedia.org/wiki/Chemometrics) through Python to analyse Raman spectroscopy data collected during a Tangential Flow Filtration (TFF) process. 
-### What is Raman Spectroscopy?
-Raman Spectroscopy is an analytical technique widely used in chemistry, biology, and materials science to identify and quantify different compounds in a sample. By using laser light to detect molecular vibrations, Raman spectroscopy generates spectral data that can be analyzed using chemometric techniques to reveal concentrations and molecular information.
-### What is TFF? 
-TFF stands for Tangential Flow Filtration, a filtration process used to separate and purify biomolecules such as proteins. Unlike traditional filtration where the fluid passes directly through the membrane and the filtrate is collected in a batch, TFF allows the fluid to flow tangentially across the membrane, enabling continuous filtration. TFF is commonly used in biopharmaceutical production to concentrate or purify solutions
+This repository contains a Python script and a Jupyter notebook with analysis of a Raman spectroscopy data set. The contents of this repository demonstrate the application of [**chemometric techniques**](https://en.wikipedia.org/wiki/Chemometrics) through Python to analyse Raman spectroscopy data collected during a Tangential Flow Filtration (TFF) process.The analysis was completed for the purposes of the *Programming for Data Analytics* module I am taking as part of a Higher Diploma in Computer Science and Data Analytics at ATU. The aim of this project is to demonstrate competency using Python to perform data analysis on large data sets.   
+## Contents
+### 1. Data Folder
+- Contains the experimental Raman spectroscopy data gathered during the TFF process.
+- Includes reference Raman spectroscopy data used for training the model.
+- Spectroscopy files are collected from the instrument in ``.csv`` format. 
+### 2. `chemometrics_analysis_script.py`Python Script
+- Includes essential plotting and analysis functions.
+- Used for visualizing data and performing various data handling, manipulation, preprocessing, and statistical modeling tasks.
+### 3. `chemometric_analysis_notebook.ipnyb` Jupyter Notebook
+- The notebook contains the complete Raman data analysis workflow. 
+## Getting Started
+### Dependencies
+- The required Python dependencies are listed in `requirements.txt`.
+- Install dependencies using:
+    ````bash
+    pip install -r requirements.txt
+    ````
+- The Jupyter notebook can be opened and executed directly, or opened in Google Colab by clicking on the link below:
 
-In this project, a TFF setup incorporates an online Raman flow cell to monitor the retentate concentration in real time as a solution of immunoglobin (IgG 1) passes through the filtration membrane. The initial solution starts with an immunoglobulin concentration of 1 mg/mL, and TFF is used to concentrate the solution up to 10 mg/mL. The online Raman cell monitors the concentration of the retentate in real time to track protein concentration during the filtration, and detect the end point of the process.
+<br>
+
+<a target="_blank" href="https://colab.research.google.com/github/a-o-connor/PFDA-project/blob/main/big_project_practice.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+<br>
