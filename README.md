@@ -15,7 +15,7 @@ Raman Spectroscopy is an analytical technique widely used in chemistry, biology,
 ### What is TFF? 
 TFF stands for Tangential Flow Filtration, a filtration process used to separate and purify biomolecules such as proteins. Unlike traditional filtration where the fluid passes directly through the membrane and the filtrate is collected in a batch, TFF allows the fluid to flow tangentially across the membrane, enabling continuous filtration. TFF is commonly used in biopharmaceutical production to concentrate or purify solutions
 
-In this project, a TFF setup incorporates an online Raman flow cell to monitor the retentate concentration in real time as a solution of immunoglobin 1  passes through the filtration membrane. The initial solution starts with an immunoglobulin concentration of 1 mg/mL, and TFF is used to concentrate the solution up to 10 mg/mL. The online Raman cell monitors the concentration of the retentate in real time to track:
+In this project, a TFF setup incorporates an online Raman flow cell to monitor the retentate concentration in real time as a solution of immunoglobin (IgG 1) passes through the filtration membrane. The initial solution starts with an immunoglobulin concentration of 1 mg/mL, and TFF is used to concentrate the solution up to 10 mg/mL. The online Raman cell monitors the concentration of the retentate in real time to track:
 
 1. Protein concentration during ultrafiltration.
 2. End-point detection of diafiltration.
