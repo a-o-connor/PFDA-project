@@ -314,7 +314,28 @@ def plot_peak_of_interest(dataframe_1, dataframe_2, xlim, ylim):
                 frameon=False
             )
 
-
-
+#5. Apply final baseline correction, concentrated on the region of interest in the spectra   
+def extract_region_of_interest(spectra_name, ramanshift_start, ramanshift_end):
+    if spectra_name == "reference":
+        column_names = reference_raman_spectra.columns
+        index = reference_raman_spectra.index
+    elif spectra_name == "experimental":
+        column_names = experimental_raman_spectra.columns
+        index = experimental_raman_spectra.index
+    else:
+        raise ValueError("Invalid spectra_name. Use 'reference' or 'experimental'.")
+    #Data Frame with als baseline correction on
+    als_corrected_spectra_df = pd.DataFrame(
+        data=subtract_als_baseline("SNV",spectra_name), 
+        index=index,
+        columns=column_names
+    )
+    als_corrected_spectra_df=als_corrected_spectra_df.sort_index().loc[ramanshift_start:ramanshift_end]
+    #Data Frame with common baseline correction applied: 
+    common_baseline_df = pd.DataFrame(
+        np.array(als_corrected_spectra_df)-np.array(als_corrected_spectra_df).min(), 
+        index=als_corrected_spectra_df.index,
+        columns=column_names)
+    return common_baseline_df 
 
 
