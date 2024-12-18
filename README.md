@@ -13,7 +13,7 @@ This repository contains a Python script and a Jupyter notebook with analysis of
 - Contains the experimental Raman spectroscopy data gathered during the TFF process.
 - Includes reference Raman spectroscopy data used for training the model.
 - Spectroscopy files are collected from the instrument in ``.csv`` format. 
-### 2. `chemometrics_analysis_script.py`Python Script
+### 2. `chemometrics_analysis_script.py` Python Script
 - Includes essential plotting and analysis functions.
 - Used for visualizing data and performing various data handling, manipulation, preprocessing, and statistical modeling tasks.
 ### 3. `chemometric_analysis_notebook.ipnyb` Jupyter Notebook
@@ -26,11 +26,8 @@ This repository contains a Python script and a Jupyter notebook with analysis of
     pip install -r requirements.txt
     ````
 - The Jupyter notebook can be opened and executed directly, or opened in Google Colab by clicking on the link below:
-
-<br>
-
-<a target="_blank" href="https://colab.research.google.com/github/a-o-connor/PFDA-project/blob/main/big_project_practice.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
-
-<br>
+<div align="center">
+    <a target="_blank" href="https://colab.research.google.com/github/a-o-connor/PFDA-project/blob/main/big_project_practice.ipynb">
+        <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+    </a>
+</div>
