@@ -338,4 +338,44 @@ def extract_region_of_interest(spectra_name, ramanshift_start, ramanshift_end):
         columns=column_names)
     return common_baseline_df 
 
+############################### PLS Regression Model ###################################
+"""
+1. Define x_train, y_train, and x_exp
+2. Define a function for the PLS model:
+    - Takes the training data set, and n components 
+    - Cross validation
+    - Prints the results (MSE, and Stdev) and plots the results
+"""
 
+x_train=np.array(extract_region_of_interest("reference", 996, 1010)).T
+y_train=np.array([float(column.split()[0]) for column in reference_raman_spectra.columns])
+x_exp=np.array(extract_region_of_interest("experimental", 996, 1010)).T
+
+def train_plsr_model(x_train, y_train, n=2):
+    pls_model=PLSRegression(n_components=n)
+    pls_model=pls_model.fit(x_train, y_train)
+
+    # Cross validation because I don't have enough samples for a train/ test split 
+    score=sklearn.model_selection.cross_val_score(estimator=pls_model, X=x_train, y=y_train, cv=LeaveOneOut(), scoring=make_scorer(mean_squared_error)) 
+    performance = (f"Model performance:\n Average MSE: {score.mean():.2f}\n Standard Deviation: {score.std():.2f}")
+
+    y_pred=cross_val_predict(estimator=pls_model, X=x_train, y=y_train, cv=LeaveOneOut())
+
+    fig, ax = plt.subplots()
+    PredictionErrorDisplay.from_predictions(
+        y_train,
+        y_pred=y_pred,
+        kind="actual_vs_predicted",
+        subsample=100,
+        random_state=0,
+        ax=ax
+    )
+    ax.text(
+    0.05, 0.95, performance, transform=ax.transAxes, fontsize=10,
+    verticalalignment='top', bbox=dict(boxstyle='round', facecolor='skyblue', alpha=0.5)
+    )
+    ax.set_title("Actual vs. Predicted Values")
+    fig.suptitle(f"Leave-One-Out cross-validated {n}-component PLS model",
+                fontweight="bold"
+                )
+    fig.tight_layout()
