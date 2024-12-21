@@ -229,7 +229,7 @@ def plot_normalisation_techniques():
 def als(y, lam=1e6, p=0.1, itermax=10): #This function computes the baseline to be subtracted from the original spectra
     L = len(y)
     D = sparse.eye(L, format='csc')
-    D = D[1:] - D[:-1]  # numpy.diff( ,2) does not work with sparse matrix. This is a workaround.
+    D = D[1:] - D[:-1] 
     D = D[1:] - D[:-1]
     D = D.T
     w = np.ones(L)
@@ -338,13 +338,14 @@ def extract_region_of_interest(spectra_name, ramanshift_start, ramanshift_end):
         columns=column_names)
     return common_baseline_df 
 
-############################### PLS Regression Model ###################################
+############################### PLS Regression Model Training ###################################
 """
 1. Define x_train, y_train, and x_exp
-2. Define a function for the PLS model:
+2. Define a function for training the PLS model:
     - Takes the training data set, and n components 
     - Cross validation
     - Prints the results (MSE, and Stdev) and plots the results
+3. Use the trained model to predict the IgG concentrations at each sampling timepoint
 """
 
 x_train=np.array(extract_region_of_interest("reference", 996, 1010)).T
@@ -378,4 +379,25 @@ def train_plsr_model(x_train, y_train, n=2):
     fig.suptitle(f"Leave-One-Out cross-validated {n}-component PLS model",
                 fontweight="bold"
                 )
-    fig.tight_layout()
+
+    #Use model to predict the concentrations in the experimental data: 
+    y_pred_exp=pls_model.predict(x_exp)
+
+    fig, ax=plt.subplots()
+    ax.plot(
+        sampling_time_formatted,
+        y_pred_exp,
+        marker="o"
+    )
+    ax.set_xticks(sampling_time_formatted)
+    ax.set_xticklabels(sampling_time_formatted, rotation=45, 
+                    fontdict= {'fontsize': 'x-small',}
+                    )
+    ax.set_xlabel(f"Sampling Time (MM:SS)")
+    ax.set_ylabel("Conc. IgG 1 (mg/mL)")
+    ax.set_title("Conc. IgG 1 at each sample time",
+                fontdict = {'fontsize': 'large','fontweight' : "bold",}
+                )
+    fig.suptitle(f"Model Prediction",
+                fontweight="bold"
+             )
