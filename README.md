@@ -16,7 +16,7 @@ This repository contains a Python script and a Jupyter notebook with analysis of
 ### 2. `chemometrics_analysis_script.py` Python Script
 - The script includes all of the plotting and analysis functions used throughout the chemometric analysis workflow. 
 ### 3. `chemometric_analysis_notebook.ipnyb` Jupyter Notebook
-- The notebook contains the complete Raman data analysis workflow, using the functions from the imported `chemometrics_analysis_script.py` python script to perform the various data handling and manipulation, data visualisation,preprocessing, and statistical modeling tasks. 
+- The notebook contains the complete Raman data analysis workflow, using the functions from the imported `chemometrics_analysis_script.py` python script to perform the various data handling and manipulation tasks, the data visualisation and plotting tasks, the spectral preprocessing steps, and the statistical modeling tasks. 
 ## Getting Started
 ### Dependencies
 - The required Python dependencies are listed in `requirements.txt`.
