@@ -10,14 +10,13 @@
 This repository contains a Python script and a Jupyter notebook with analysis of a Raman spectroscopy data set. The contents of this repository demonstrate the application of [**chemometric techniques**](https://en.wikipedia.org/wiki/Chemometrics) through Python to analyse Raman spectroscopy data collected during a Tangential Flow Filtration (TFF) process.The analysis was completed for the purposes of the *Programming for Data Analytics* module I am taking as part of a Higher Diploma in Computer Science and Data Analytics at ATU. The aim of this project is to demonstrate competency using Python to perform data analysis on large data sets.   
 ## Contents
 ### 1. Data Folder
-- Contains the experimental Raman spectroscopy data gathered during the TFF process.
-- Includes reference Raman spectroscopy data used for training the model.
+- The data folder contains the experimental Raman spectroscopy data gathered during the TFF process.
+- Reference Raman spectroscopy data used for training the model is also saved in the data folder.
 - Spectroscopy files are collected from the instrument in ``.csv`` format. 
 ### 2. `chemometrics_analysis_script.py` Python Script
-- Includes essential plotting and analysis functions.
-- Used for visualizing data and performing various data handling, manipulation, preprocessing, and statistical modeling tasks.
+- The script includes all of the plotting and analysis functions used throughout the chemometric analysis workflow. 
 ### 3. `chemometric_analysis_notebook.ipnyb` Jupyter Notebook
-- The notebook contains the complete Raman data analysis workflow. 
+- The notebook contains the complete Raman data analysis workflow, using the functions from the imported `chemometrics_analysis_script.py` python script to perform the various data handling and manipulation, data visualisation,preprocessing, and statistical modeling tasks. 
 ## Getting Started
 ### Dependencies
 - The required Python dependencies are listed in `requirements.txt`.
