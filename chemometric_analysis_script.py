@@ -39,7 +39,6 @@ from scipy.sparse.linalg import spsolve
 ################ Read in the Data ##########################
 reference_raman_spectra= pd.read_csv("./data/Raw Raman Data - Reference.csv", index_col=0)
 reference_raman_spectra.columns.name="Concentration IgG 1 (mg/mL)"
-reference_raman_spectra.head(n=20)
 
 experimental_raman_spectra= pd.read_csv("./data/Raw Raman Data - Experiment.csv").T #csv of experimental data must be transposed
 experimental_raman_spectra.columns=experimental_raman_spectra.iloc[0] #Set the first row as the column header.
@@ -49,7 +48,6 @@ sampling_time = [timedelta(minutes=minutes) for minutes in experimental_raman_sp
 sampling_time_formatted = [f"{(time.seconds//60):02}:{(time.seconds%60):02}" for time in sampling_time]
 experimental_raman_spectra.columns=sampling_time_formatted
 experimental_raman_spectra.columns.name="Sampling Time (MM:SS)"
-experimental_raman_spectra.head(n=20)
 
 ############################### Define Plotting Functions ###################################  
 
@@ -240,7 +238,7 @@ def als(y, lam=1e6, p=0.1, itermax=10): #This function computes the baseline to 
         w = p * (y > z) + (1 - p) * (y < z)
     return z
 
-def subtract_als_baseline(scaler_name, spectra_name): #This function subtracts the als basleine computed in the als algorithm above
+def subtract_als_baseline(scaler_name, spectra_name): #This function subtracts the als baseline computed in the als algorithm above
     spectra=scaled_data[f"{scaler_name}_scaled_{spectra_name}_spectra"]
     als_baseline = np.array([als(spectra[:, i]) for i in range(spectra.shape[1])]).T
     return(spectra-als_baseline)
@@ -356,7 +354,7 @@ def train_plsr_model(x_train, y_train, n=2):
     pls_model=PLSRegression(n_components=n)
     pls_model=pls_model.fit(x_train, y_train)
 
-    # Cross validation because I don't have enough samples for a train/ test split 
+    # LOOCV because I don't have enough samples for a train/ test split 
     score=sklearn.model_selection.cross_val_score(estimator=pls_model, X=x_train, y=y_train, cv=LeaveOneOut(), scoring=make_scorer(mean_squared_error)) 
     performance = (f"Model performance:\n Average MSE: {score.mean():.2f}\n Standard Deviation: {score.std():.2f}")
 
