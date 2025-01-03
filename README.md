@@ -16,7 +16,7 @@ This repository contains a Python script and a Jupyter notebook with analysis of
 ### 2. `chemometrics_analysis_script.py` Python Script
 - The script includes all of the plotting and analysis functions used throughout the chemometric analysis workflow. 
 ### 3. `chemometric_analysis_notebook.ipnyb` Jupyter Notebook
-- The notebook contains the complete Raman data analysis workflow, using the functions from the imported `chemometrics_analysis_script.py` python script to perform the various data handling and manipulation tasks, the data visualisation and plotting tasks, the spectral preprocessing steps, and the statistical modeling tasks. 
+- The notebook contains the complete Raman data analysis workflow, using the functions from the imported `chemometrics_analysis_script.py` python script to perform the various data handling and manipulation tasks, the data visualisation and plotting tasks, the spectral preprocessing steps, and the statistical modeling tasks.
 ## Getting Started
 ### Dependencies
 - The required Python dependencies are listed in `requirements.txt`.
@@ -26,7 +26,7 @@ This repository contains a Python script and a Jupyter notebook with analysis of
     ````
 - The Jupyter notebook can be opened and executed directly, or opened in Google Colab by clicking on the link below:
 <div align="center">
-    <a target="_blank" href="https://colab.research.google.com/github/a-o-connor/PFDA-project/blob/main/big_project_practice.ipynb">
+    <a target="_blank" href="https://colab.research.google.com/github/a-o-connor/PFDA-project/blob/main/raman_data_chemometric_analysis.ipynb">
         <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
     </a>
 </div>
